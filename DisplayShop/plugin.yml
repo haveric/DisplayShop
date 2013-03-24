@@ -1,0 +1,23 @@
+name: DisplayShop
+main: haveric.displayShop.DisplayShop
+version: 0.1
+author: haveric
+dev-url: http://dev.bukkit.org/server-mods/displayshop/
+depend: [Vault]
+softdepend: [WorldGuard]
+description: >
+             Create shops that display what is being bought/sold above them
+commands:
+  displayshop:
+    aliases: [ds, dshop, shop]
+    description: Create shops that display what is being bought/sold above them
+    usage:
+  buy:
+    description: Buy items from a shop or set up a shop to buy items.
+    usage:
+  sell:
+    description: Sell items to a shop or set up a shop to sell items.
+    usage:
+  both:
+    description: Set up a shop to buy and sell items
+    usage: 
