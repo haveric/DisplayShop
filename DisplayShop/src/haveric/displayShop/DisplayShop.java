@@ -9,7 +9,6 @@ import haveric.displayShop.inventory.InventoryUtil;
 import haveric.displayShop.item.ItemDespawn;
 import haveric.displayShop.item.ShopItem;
 import haveric.displayShop.item.ShopItems;
-import haveric.displayShop.mcstats.Metrics;
 import haveric.displayShop.shops.Shop;
 import haveric.displayShop.shops.ShopInteract;
 import haveric.displayShop.shops.ShopRemove;
@@ -39,8 +38,6 @@ public class DisplayShop extends JavaPlugin {
 
     public static Logger staticLog;
     private Commands commands = new Commands(this);
-
-    Metrics metrics;
 
     Database db;
 
@@ -76,8 +73,6 @@ public class DisplayShop extends JavaPlugin {
         getCommand(Commands.getBuy()).setExecutor(commands);
         getCommand(Commands.getSell()).setExecutor(commands);
         getCommand(Commands.getBoth()).setExecutor(commands);
-
-        setupMetrics();
 
         List<Shop> shops = DB.getShops();
         Iterator<Shop> shopIter = shops.iterator();
@@ -166,16 +161,6 @@ public class DisplayShop extends JavaPlugin {
             // No WorldGuard
         } else {
             Guard.setWorldGuard((WorldGuardPlugin) worldGuard);
-        }
-    }
-
-    private void setupMetrics() {
-        try {
-            metrics = new Metrics(this);
-
-            metrics.start();
-        } catch (IOException e) {
-            e.printStackTrace();
         }
     }
 }
