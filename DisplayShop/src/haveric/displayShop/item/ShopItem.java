@@ -19,6 +19,7 @@ import org.bukkit.World;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Item;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.util.Vector;
 
 import com.avaje.ebean.validation.NotNull;
@@ -215,10 +216,14 @@ public class ShopItem {
 
             ItemStack fakeItem = getItemStack().clone();
             fakeItem.setAmount(itemAmount);
+            ItemMeta meta = fakeItem.getItemMeta();
+            meta.setDisplayName("DisplayShop Item");
+            fakeItem.setItemMeta(meta);
+
 
             Item item = getChestLocation().getWorld().dropItem(getDisplayLocation(), fakeItem);
             item.setVelocity(new Vector(0, 0.25, 0));
-            item.setPickupDelay(Integer.MAX_VALUE - 94000); // custom num for DisplayShop
+            item.setPickupDelay(Integer.MAX_VALUE);
             ShopItems.addItem(item.getUniqueId().toString(), item, shopId);
         }
 

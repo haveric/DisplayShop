@@ -111,9 +111,11 @@ public class DisplayShop extends JavaPlugin {
     }
 
     private void setupDB() {
+        getDataFolder().mkdir();
         File dbFile = new File(getDataFolder() + "/database.yml");
         FileConfiguration dbConfig = YamlConfiguration.loadConfiguration(dbFile);
 
+        saveConfig(dbConfig, dbFile);
         db = new Database(this) {
             protected java.util.List<Class<?>> getDatabaseClasses() {
                 List<Class<?>> list = new ArrayList<Class<?>>();
@@ -138,6 +140,14 @@ public class DisplayShop extends JavaPlugin {
         dbConfig.set("database.rebuild", false);
         try {
             dbConfig.save(dbFile);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void saveConfig(FileConfiguration fileConfig, File file) {
+        try {
+            fileConfig.save(file);
         } catch (IOException e) {
             e.printStackTrace();
         }

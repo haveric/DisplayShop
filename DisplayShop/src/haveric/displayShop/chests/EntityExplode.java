@@ -18,12 +18,8 @@ public class EntityExplode implements Listener {
 
     public EntityExplode() { }
 
-    @EventHandler (priority = EventPriority.HIGHEST)
+    @EventHandler (priority = EventPriority.HIGHEST, ignoreCancelled=true)
     public void entityExplode(EntityExplodeEvent event) {
-        if (event.isCancelled()) {
-            return;
-        }
-
         List<Block> blocks = event.blockList();
 
         Iterator<Block> iter = blocks.iterator();
