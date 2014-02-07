@@ -213,13 +213,11 @@ public class ShopItem {
         final int itemAmount = getItemAmount();
 
         if (itemAmount > 0) {
-
             ItemStack fakeItem = getItemStack().clone();
             fakeItem.setAmount(itemAmount);
             ItemMeta meta = fakeItem.getItemMeta();
             meta.setDisplayName("DisplayShop Item");
             fakeItem.setItemMeta(meta);
-
 
             Item item = getChestLocation().getWorld().dropItem(getDisplayLocation(), fakeItem);
             item.setVelocity(new Vector(0, 0.25, 0));

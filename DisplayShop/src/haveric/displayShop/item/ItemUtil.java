@@ -265,28 +265,56 @@ public class ItemUtil {
         short dur = item.getDurability();
 
         switch(id) {
+            case 1:
+                switch(dur) {
+                    case 0: name="Stone"; break;
+                    case 1: name="Granite"; break;
+                    case 2: name="Polished Granite"; break;
+                    case 3: name="Diorite"; break;
+                    case 4: name="Polished Diorite"; break;
+                    case 5: name="Andesite"; break;
+                    case 6: name="Polished Andesite"; break;
+                }
+                break;
+            case 3:
+                switch(dur) {
+                    case 0: name="Dirt"; break;
+                    case 1: name="Grassless Dirt"; break;
+                    case 2: name="Podzol"; break;
+                }
+                break;
             case 5:
                 switch(dur) {
                     case 0: name="Oak"; break;
-                    case 1: name="Pine"; break;
+                    case 1: name="Spruce"; break;
                     case 2: name="Birch"; break;
                     case 3: name="Jungle"; break;
+                    case 4: name="Acacia"; break;
+                    case 5: name="Dark Oak"; break;
                 }
                 name += " Plank";
                 break;
             case 6:
                 switch(dur) {
                     case 0: name="Oak"; break;
-                    case 1: name="Pine"; break;
+                    case 1: name="Spruce"; break;
                     case 2: name="Birch"; break;
                     case 3: name="Jungle"; break;
+                    case 4: name="Acacia"; break;
+                    case 5: name="Dark Oak"; break;
                 }
                 name += " Sapling";
+                break;
+            case 12:
+                switch(dur) {
+                    case 0: name="Sand"; break;
+                    case 1: name="Red Sand"; break;
+                }
                 break;
             case 17:
                 switch(dur) {
                     case 0: name="Oak"; break;
-                    case 1: name="Pine"; break;
+                    case 1: name="Spruce"; break;
                     case 2: name="Birch"; break;
                     case 3: name="Jungle"; break;
                 }
@@ -360,6 +388,19 @@ public class ItemUtil {
             case 37:
                 name="Dandelion";
                 break;
+            case 38:
+                switch(dur) {
+                    case 0: name="Poppy"; break;
+                    case 1: name="Blue Orchid"; break;
+                    case 2: name="Allium"; break;
+                    case 3: name="Azure Bluet"; break;
+                    case 4: name="Red Tulip"; break;
+                    case 5: name="Orange Tulip"; break;
+                    case 6: name="White Tulip"; break;
+                    case 7: name="Pink Tulip"; break;
+                    case 8: name="Oxeye Daisy"; break;
+                }
+                break;
             case 43:
                 name = "Double ";
                 switch(dur) {
@@ -368,6 +409,9 @@ public class ItemUtil {
                     case 2: name+="Wood"; break;
                     case 3: name+="Cobble"; break;
                     case 4: name+="Brick"; break;
+                    case 5: name+="Stone Brick"; break;
+                    case 6: name+="Nether Brick"; break;
+                    case 7: name+="Quartz"; break;
                 }
                 name += " Slab";
                 break;
@@ -379,6 +423,8 @@ public class ItemUtil {
                     case 3: name="Cobble"; break;
                     case 4: name="Brick"; break;
                     case 5: name="Stone Brick"; break;
+                    case 6: name="Nether Brick"; break;
+                    case 7: name="Quartz"; break;
                 }
                 name += " Slab";
                 break;
@@ -391,12 +437,36 @@ public class ItemUtil {
             case 82:
                 name="Clay Block";
                 break;
+            case 95:
+                switch(dur) {
+                    case 0: name="White"; break;
+                    case 1: name="Orange"; break;
+                    case 2: name="Magenta"; break;
+                    case 3: name="Light Blue"; break;
+                    case 4: name="Yellow"; break;
+                    case 5: name="Lime"; break;
+                    case 6: name="Pink"; break;
+                    case 7: name="Gray"; break;
+                    case 8: name="Light Gray"; break;
+                    case 9: name="Cyan"; break;
+                    case 10: name="Purple"; break;
+                    case 11: name="Blue"; break;
+                    case 12: name="Brown"; break;
+                    case 13: name="Green"; break;
+                    case 14: name="Red"; break;
+                    case 15: name="Black"; break;
+                }
+                name+=" Stained Glass";
+                break;
             case 97:
                 name = "Silverfish ";
                 switch(dur) {
                     case 0: name+="Stone"; break;
                     case 1: name+="Cobble"; break;
                     case 2: name+="Stone Brick"; break;
+                    case 3: name+="Mossy Stone Brick"; break;
+                    case 4: name+="Cracked Stone Brick"; break;
+                    case 5: name+="Chiseled Stone Brick"; break;
                 }
                 break;
             case 98:
@@ -436,9 +506,11 @@ public class ItemUtil {
                 name = "Double ";
                 switch(dur) {
                     case 0: name+="Oak"; break;
-                    case 1: name+="Pine"; break;
+                    case 1: name+="Spruce"; break;
                     case 2: name+="Birch"; break;
                     case 3: name+="Jungle"; break;
+                    case 4: name+="Acacia"; break;
+                    case 5: name+="Dark Oak"; break;
                 }
                 name += " Slab";
                 break;
@@ -448,6 +520,8 @@ public class ItemUtil {
                     case 1: name="Pine"; break;
                     case 2: name="Birch"; break;
                     case 3: name="Jungle"; break;
+                    case 4: name="Acacia"; break;
+                    case 5: name="Dark Oak"; break;
                 }
                 name += " Slab";
                 break;
@@ -455,6 +529,101 @@ public class ItemUtil {
                 switch(dur) {
                     case 0: name="Cobble Wall"; break;
                     case 1: name="Mossy wall"; break;
+                }
+                break;
+            case 155:
+                switch(dur) {
+                    case 0: name=""; break;
+                    case 1: name="Chiseled"; break;
+                    case 2: name="Pillar"; break;
+                }
+                name += " Quartz Block";
+                break;
+            case 159:
+                switch(dur) {
+                    case 0: name="White"; break;
+                    case 1: name="Orange"; break;
+                    case 2: name="Magenta"; break;
+                    case 3: name="Light Blue"; break;
+                    case 4: name="Yellow"; break;
+                    case 5: name="Lime"; break;
+                    case 6: name="Pink"; break;
+                    case 7: name="Gray"; break;
+                    case 8: name="Light Gray"; break;
+                    case 9: name="Cyan"; break;
+                    case 10: name="Purple"; break;
+                    case 11: name="Blue"; break;
+                    case 12: name="Brown"; break;
+                    case 13: name="Green"; break;
+                    case 14: name="Red"; break;
+                    case 15: name="Black"; break;
+                }
+                name += " Stained Clay";
+                break;
+            case 160:
+                switch(dur) {
+                    case 0: name="White"; break;
+                    case 1: name="Orange"; break;
+                    case 2: name="Magenta"; break;
+                    case 3: name="Light Blue"; break;
+                    case 4: name="Yellow"; break;
+                    case 5: name="Lime"; break;
+                    case 6: name="Pink"; break;
+                    case 7: name="Gray"; break;
+                    case 8: name="Light Gray"; break;
+                    case 9: name="Cyan"; break;
+                    case 10: name="Purple"; break;
+                    case 11: name="Blue"; break;
+                    case 12: name="Brown"; break;
+                    case 13: name="Green"; break;
+                    case 14: name="Red"; break;
+                    case 15: name="Black"; break;
+                }
+                name += " Stained Glass Pane";
+                break;
+            case 161:
+                switch(dur) {
+                    case 0: name="Acacia"; break;
+                    case 1: name="Dark Oak"; break;
+                }
+                name += " Leaves";
+                break;
+            case 162:
+                switch(dur) {
+                    case 0: name="Acacia"; break;
+                    case 1: name="Dark Oak"; break;
+                }
+                name += " Log";
+                break;
+            case 171:
+                switch(dur) {
+                    case 0: name="White"; break;
+                    case 1: name="Orange"; break;
+                    case 2: name="Magenta"; break;
+                    case 3: name="Light Blue"; break;
+                    case 4: name="Yellow"; break;
+                    case 5: name="Lime"; break;
+                    case 6: name="Pink"; break;
+                    case 7: name="Gray"; break;
+                    case 8: name="Light Gray"; break;
+                    case 9: name="Cyan"; break;
+                    case 10: name="Purple"; break;
+                    case 11: name="Blue"; break;
+                    case 12: name="Brown"; break;
+                    case 13: name="Green"; break;
+                    case 14: name="Red"; break;
+                    case 15: name="Black"; break;
+                }
+                name += " Carpet";
+                break;
+            case 175:
+                switch(dur) {
+                    case 0: name="Sunflower"; break;
+                    case 1: name="Lilac"; break;
+                    case 2: name="Double Tallgrass"; break;
+                    case 3: name="Large Fern"; break;
+                    case 4: name="Rose Bush"; break;
+                    case 5: name="Peony"; break;
                 }
                 break;
             case 256:
@@ -496,8 +665,28 @@ public class ItemUtil {
             case 319:
                 name="Raw Porkchop";
                 break;
+            case 322:
+                switch(dur) {
+                    case 0: name="Golden Apple"; break;
+                    case 1: name="Notch Apple"; break;
+                }
+                break;
             case 347:
                 name="Clock";
+                break;
+            case 349:
+                switch(dur) {
+                    case 0: name="Raw Fish"; break;
+                    case 1: name="Raw Salmon"; break;
+                    case 2: name="Clownfish"; break;
+                    case 3: name="Pufferfish"; break;
+                }
+                break;
+            case 350:
+                switch(dur) {
+                    case 0: name="Cooked Fish"; break;
+                    case 1: name="Cooked Salmon"; break;
+                }
                 break;
             case 351:
                 switch(dur) {
@@ -641,6 +830,8 @@ public class ItemUtil {
                     case 62: name="Magma Cube"; break;
                     case 63: name="Ender Dragon"; break; // Shouldn't exist
                     case 64: name="Wither"; break; // Shouldn't exist
+                    case 65: name="Bat"; break;
+                    case 66: name="Witch"; break;
                     case 90: name="Pig"; break;
                     case 91: name="Sheep"; break;
                     case 92: name="Cow"; break;
@@ -651,6 +842,7 @@ public class ItemUtil {
                     case 97: name="Snow Golem"; break; // Shouldn't exist
                     case 98: name="Ocelot"; break;
                     case 99: name="Iron Golem"; break; // Shouldn't exist
+                    case 100: name="Horse"; break;
                     case 120: name="Villager"; break;
                     case 200: name="Ender Crystal"; break; // Should definitely not exist
                 }
@@ -668,6 +860,16 @@ public class ItemUtil {
             case 385:
                 name="Fire Charge";
                 break;
+            case 397:
+                switch(dur) {
+                    case 0: name="Skeleton"; break;
+                    case 1: name="Wither Skeleton"; break;
+                    case 2: name="Zombie"; break;
+                    case 3: name="Human"; break;
+                    case 4: name="Creeper"; break;
+                }
+                name += " Head";
+                break;
             case 2256: name="13 Record"; break;
             case 2257: name="Cat Record"; break;
             case 2258: name="Blocks Record"; break;
@@ -675,10 +877,12 @@ public class ItemUtil {
             case 2260: name="Far Record"; break;
             case 2261: name="Mall Record"; break;
             case 2262: name="Mellohi Record"; break;
-            case 2264: name="Stal Record"; break;
-            case 2265: name="Strad Record"; break;
-            case 2266: name="Ward Record"; break;
-            case 2267: name="11 Record"; break;
+            case 2263: name="Stal Record"; break;
+            case 2264: name="Strad Record"; break;
+            case 2265: name="Ward Record"; break;
+            case 2266: name="11 Record"; break;
+            case 2267: name="Wait Record"; break;
+
             default: name = toMixed(item.getType().name().replaceAll("_", " "));
         }
 
