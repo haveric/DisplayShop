@@ -14,6 +14,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 import org.bukkit.Bukkit;
+import org.bukkit.Chunk;
 import org.bukkit.Location;
 import org.bukkit.World;
 import org.bukkit.enchantments.Enchantment;
@@ -208,7 +209,13 @@ public class ShopItem {
             item.setPickupDelay(Integer.MAX_VALUE);
             ShopItems.addItem(item.getUniqueId().toString(), item, shopId);
         }
+    }
 
+    public boolean isDisplayChunkLoaded() {
+        World world = Bukkit.getServer().getWorld(getWorld());
+        Chunk chunk = world.getChunkAt(getDisplayLocation());
+
+        return chunk.isLoaded();
     }
 
     public void resetItemPosition() {

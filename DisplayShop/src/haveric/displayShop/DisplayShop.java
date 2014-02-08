@@ -92,13 +92,15 @@ public class DisplayShop extends JavaPlugin {
             }
         }
 
-
         List<ShopItem> shopItems = DB.getShopItems();
         Iterator<ShopItem> iter = shopItems.iterator();
-        log.info("Items to add: " + shopItems.size());
+        log.info("Total Items: " + shopItems.size());
         while(iter.hasNext()) {
             ShopItem item = iter.next();
-            item.dropItem();
+            if (item.isDisplayChunkLoaded() && ShopItems.getItem(item.getShopId()) == null) {
+                log.info("OnEnable: " + item.getShopId() + ", X: " + item.getX() + ", Z:" + item.getZ());
+                item.dropItem();
+            }
         }
     }
 
@@ -108,6 +110,7 @@ public class DisplayShop extends JavaPlugin {
         log.info("Items to remove: " + shopItems.size());
         while(iter.hasNext()) {
             ShopItem item = iter.next();
+            log.info("OnDisable: " + item.getShopId() + ", X: " + item.getX() + ", Z:" + item.getZ());
             item.removeItem();
         }
     }

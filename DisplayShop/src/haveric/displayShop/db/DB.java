@@ -73,7 +73,6 @@ public class DB {
     }
 
     public static void removeShop(Shop shop) {
-        DisplayShop.staticLog.info("Removed Shop");
         removeShop ++;
         ShopItem item = getItem(shop.getShopId());
         if (item != null) {
