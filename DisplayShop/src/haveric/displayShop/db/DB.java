@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import org.bukkit.Chunk;
 import org.bukkit.Location;
 import org.bukkit.inventory.ItemStack;
 
@@ -35,6 +36,7 @@ public class DB {
     public static long getSign;
     public static long getSignById;
     public static long setShopBuySell;
+    public static long getItemsByChunk;
     private DB() {} // Private constructor for utility class
 
     public static void init(DisplayShop displayShop) {
@@ -57,6 +59,7 @@ public class DB {
         getSign = 0;
         getSignById = 0;
         setShopBuySell = 0;
+        getItemsByChunk = 0;
     }
 
     public static void add(Object object) {
@@ -91,8 +94,20 @@ public class DB {
         double x = location.getX();
         double y = location.getY();
         double z = location.getZ();
-        String xyz = x + "," + y + "," + z;
-        return database.find(Shop.class).where().ieq("world", world).ieq("xyz", xyz).findUnique();
+
+        return database.find(Shop.class).where().ieq("world", world).eq("x", x).eq("y", y).eq("z", z).findUnique();
+    }
+
+    public static List<ShopItem> getItemsByChunk(Chunk chunk) {
+        getItemsByChunk ++;
+        String world = chunk.getWorld().getName();
+        double chunkSize = 16.0;
+        double x = chunk.getX() * chunkSize;
+        double z = chunk.getZ() * chunkSize;
+
+
+        List<ShopItem> items = database.find(ShopItem.class).where().ieq("world", world).between("x", x, x+chunkSize).between("z", z, z+chunkSize).findList();
+        return items;
     }
 
     public static List<Shop> searchShopItemDistance(Location location, int distance, ItemStack stack) {
@@ -160,8 +175,7 @@ public class DB {
         double x = location.getX();
         double y = location.getY();
         double z = location.getZ();
-        String xyz = x + "," + y + "," + z;
-        return database.find(ShopSign.class).where().ieq("world", world).ieq("xyz", xyz).findUnique();
+        return database.find(ShopSign.class).where().ieq("world", world).eq("x", x).eq("y", y).eq("z", z).findUnique();
     }
 
     public static ShopSign getSign(int shopId) {

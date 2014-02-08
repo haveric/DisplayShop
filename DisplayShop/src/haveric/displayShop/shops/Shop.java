@@ -38,8 +38,13 @@ public class Shop {
 
     @NotNull
     private String world;
+
     @NotNull
-    private String xyz;
+    private double x;
+    @NotNull
+    private double y;
+    @NotNull
+    private double z;
 
     @NotNull
     private String owner;
@@ -100,20 +105,31 @@ public class Shop {
         return world;
     }
 
-    public void setXyz(String newXYZ) {
-        xyz = newXYZ;
+    public void setX(double newX) {
+        x = newX;
     }
 
-    public String getXyz() {
-        return xyz;
+    public double getX() {
+        return x;
+    }
+
+    public void setY(double newY) {
+        y = newY;
+    }
+
+    public double getY() {
+        return y;
+    }
+
+    public void setZ(double newZ) {
+        z = newZ;
+    }
+
+    public double getZ() {
+        return z;
     }
 
     public Location getLocation() {
-        String[] coords = getXyz().split(",");
-        double x = Double.parseDouble(coords[0]);
-        double y = Double.parseDouble(coords[1]);
-        double z = Double.parseDouble(coords[2]);
-
         World world = Bukkit.getServer().getWorld(getWorld());
         Location location = new Location(world, x, y, z);
         return location;
@@ -122,10 +138,12 @@ public class Shop {
     public void setLocation(Location newLocation) {
         if (newLocation != null) {
             setWorld(newLocation.getWorld().getName());
-            double x = newLocation.getX();
-            double y = newLocation.getY();
-            double z = newLocation.getZ();
-            setXyz(x + "," + y + "," + z);
+            double tempX = newLocation.getX();
+            double tempY = newLocation.getY();
+            double tempZ = newLocation.getZ();
+            setX(tempX);
+            setY(tempY);
+            setZ(tempZ);
 
             ShopItem item = DB.getItem(getShopId());
             if (item != null) {

@@ -6,6 +6,7 @@ import haveric.displayShop.db.DB;
 import haveric.displayShop.db.Database;
 import haveric.displayShop.inventory.InventoryClose;
 import haveric.displayShop.inventory.InventoryUtil;
+import haveric.displayShop.item.ChunkListener;
 import haveric.displayShop.item.ItemDespawn;
 import haveric.displayShop.item.ShopItem;
 import haveric.displayShop.item.ShopItems;
@@ -57,6 +58,7 @@ public class DisplayShop extends JavaPlugin {
         pm.registerEvents(new InventoryClose(ds), ds);
         pm.registerEvents(new ChestPlace(ds), ds);
         pm.registerEvents(new EntityExplode(), ds);
+        pm.registerEvents(new ChunkListener(ds), ds);
 
         setupDB();
         DB.init(ds);

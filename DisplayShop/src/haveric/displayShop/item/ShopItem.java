@@ -43,9 +43,11 @@ public class ShopItem {
     @NotNull
     private String world;
     @NotNull
-    private String xyz;
+    private double x;
     @NotNull
-    private String displayXYZ;
+    private double y;
+    @NotNull
+    private double z;
 
     public ShopItem() { }
 
@@ -64,20 +66,31 @@ public class ShopItem {
         return world;
     }
 
-    public void setXyz(String newXYZ) {
-        xyz = newXYZ;
+    public void setX(double newX) {
+        x = newX;
     }
 
-    public String getXyz() {
-        return xyz;
+    public double getX() {
+        return x;
+    }
+
+    public void setY(double newY) {
+        y = newY;
+    }
+
+    public double getY() {
+        return y;
+    }
+
+    public void setZ(double newZ) {
+        z = newZ;
+    }
+
+    public double getZ() {
+        return z;
     }
 
     public Location getChestLocation() {
-        String[] coords = getXyz().split(",");
-        double x = Double.parseDouble(coords[0]);
-        double y = Double.parseDouble(coords[1]);
-        double z = Double.parseDouble(coords[2]);
-
         World world = Bukkit.getServer().getWorld(getWorld());
         Location location = new Location(world, x, y, z);
         return location;
@@ -86,48 +99,19 @@ public class ShopItem {
     public void setChestLocation(Location newLocation) {
         if (newLocation != null) {
             setWorld(newLocation.getWorld().getName());
-            double x = newLocation.getX();
-            double y = newLocation.getY();
-            double z = newLocation.getZ();
-            setXyz(x + "," + y + "," + z);
-
-            resetDisplayLocation();
+            double newX = newLocation.getX();
+            double newY = newLocation.getY();
+            double newZ = newLocation.getZ();
+            setX(newX);
+            setY(newY);
+            setZ(newZ);
         }
-    }
-
-    public void setDisplayXYZ(String newXYZ) {
-        displayXYZ = newXYZ;
-    }
-
-    public String getDisplayXYZ() {
-        return displayXYZ;
     }
 
     public Location getDisplayLocation() {
-        String[] coords = getDisplayXYZ().split(",");
-        double x = Double.parseDouble(coords[0]);
-        double y = Double.parseDouble(coords[1]);
-        double z = Double.parseDouble(coords[2]);
-
         World world = Bukkit.getServer().getWorld(getWorld());
-        Location location = new Location(world, x, y, z);
+        Location location = new Location(world, x + 0.5, y + 1.3, z + 0.5);
         return location;
-    }
-
-    public void setDisplayLocation(Location newLocation) {
-        if (newLocation != null) {
-            double x = newLocation.getX();
-            double y = newLocation.getY();
-            double z = newLocation.getZ();
-            setDisplayXYZ(x + "," + y + "," + z);
-        }
-    }
-
-
-    public void resetDisplayLocation() {
-        Location displayLocation = getChestLocation().clone();
-        displayLocation.add(new Vector(0.5, 1.3, 0.5));
-        setDisplayLocation(displayLocation);
     }
 
     public void setItemId(int newId) {
