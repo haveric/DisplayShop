@@ -329,7 +329,7 @@ public class ItemUtil {
                     case 13:
                     case 9:
                     case 5:
-                    case 1: name="Pine"; break;
+                    case 1: name="Spruce"; break;
                     case 14:
                     case 10:
                     case 6:
@@ -357,7 +357,7 @@ public class ItemUtil {
             case 31:
                 switch(dur) {
                     case 0: name="Dead Shrub"; break;
-                    case 1: name="Tall Grass"; break;
+                    case 1: name="Grass"; break;
                     case 2: name="Fern"; break;
                 }
                 break;
@@ -433,6 +433,12 @@ public class ItemUtil {
                 break;
             case 58:
                 name="Crafting Table";
+                break;
+            case 60:
+                name="Farmland";
+                break;
+            case 67:
+                name="Cobble Stairs";
                 break;
             case 82:
                 name="Clay Block";
@@ -517,7 +523,7 @@ public class ItemUtil {
             case 126:
                 switch(dur) {
                     case 0: name="Oak"; break;
-                    case 1: name="Pine"; break;
+                    case 1: name="Spruce"; break;
                     case 2: name="Birch"; break;
                     case 3: name="Jungle"; break;
                     case 4: name="Acacia"; break;
@@ -525,11 +531,32 @@ public class ItemUtil {
                 }
                 name += " Slab";
                 break;
+            case 134:
+                name = "Spruce Stairs";
+                break;
+            case 135:
+                name = "Birch Stairs";
+                break;
+            case 136:
+                name = "Jungle Stairs";
+                break;
+            case 137:
+                name = "Command Block";
+                break;
             case 139:
                 switch(dur) {
                     case 0: name="Cobble Wall"; break;
                     case 1: name="Mossy wall"; break;
                 }
+                break;
+            case 141:
+                name = "Carrot Plant";
+                break;
+            case 142:
+                name = "Potato Plant";
+                break;
+            case 151:
+                name = "Daylight Sensor";
                 break;
             case 155:
                 switch(dur) {
@@ -595,6 +622,9 @@ public class ItemUtil {
                 }
                 name += " Log";
                 break;
+            case 170:
+                name = "Hay Bale";
+                break;
             case 171:
                 switch(dur) {
                     case 0: name="White"; break;
@@ -615,6 +645,9 @@ public class ItemUtil {
                     case 15: name="Black"; break;
                 }
                 name += " Carpet";
+                break;
+            case 172:
+                name = "Hardened Clay";
                 break;
             case 175:
                 switch(dur) {
@@ -643,6 +676,9 @@ public class ItemUtil {
                 break;
             case 277:
                 name="Diamond Shovel";
+                break;
+            case 284:
+                name="Gold Shovel";
                 break;
             case 289:
                 name="Gunpowder";
@@ -681,6 +717,9 @@ public class ItemUtil {
                     case 2: name="Clownfish"; break;
                     case 3: name="Pufferfish"; break;
                 }
+                break;
+            case 332:
+                name = "Snowball";
                 break;
             case 350:
                 switch(dur) {
@@ -860,6 +899,15 @@ public class ItemUtil {
             case 385:
                 name="Fire Charge";
                 break;
+            case 390:
+                name="Flower Pot";
+                break;
+            case 391:
+                name="Carrot";
+                break;
+            case 392:
+                name="Potato";
+                break;
             case 397:
                 switch(dur) {
                     case 0: name="Skeleton"; break;
@@ -869,6 +917,15 @@ public class ItemUtil {
                     case 4: name="Creeper"; break;
                 }
                 name += " Head";
+                break;
+            case 404:
+                name="Comparator";
+                break;
+            case 405:
+                name="Nether Brick";
+                break;
+            case 420:
+                name="Lead";
                 break;
             case 2256: name="13 Record"; break;
             case 2257: name="Cat Record"; break;
