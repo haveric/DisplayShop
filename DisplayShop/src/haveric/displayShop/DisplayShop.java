@@ -117,7 +117,7 @@ public class DisplayShop extends JavaPlugin {
 
     private void setupDB() {
         getDataFolder().mkdir();
-        File dbFile = new File(getDataFolder() + "/database.yml");
+        File dbFile = new File(getDataFolder() + File.separator + "database.yml");
         FileConfiguration dbConfig = YamlConfiguration.loadConfiguration(dbFile);
 
         saveConfig(dbConfig, dbFile);
